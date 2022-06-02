@@ -98,7 +98,6 @@
 					<target>11</target>
 					<encoding>UTF-8</encoding>
 					<compilerArgument>-Xlint:all</compilerArgument>
-					<showWarning>true</showWarning>
 					<showDeprecation>true</showDeprecation>
 				</configuration>
 			</plugin>
@@ -113,6 +112,7 @@
 				<finalName>${project.artifactId}</finalName>
 					<archive>
 						<manifest>
+							<addClassPath>true</addClassPath>
 							<mainClass>Designite.Designite</mainClass>
 						</manifest>
 					</archive>
