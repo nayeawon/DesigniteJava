@@ -133,7 +133,6 @@
 				<finalName>${project.artifactId}</finalName>
 					<archive>
 						<manifest>
-							<addClassPath>true</addClassPath>
 							<mainClass>Designite.Designite</mainClass>
 						</manifest>
 					</archive>
