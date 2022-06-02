@@ -4,14 +4,19 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
+import java.util.*;
 
 public class CSVUtils {
+	private static final List<String> types = Arrays.asList("Abstract Function Call From Constructor", "Complex Conditional",
+			"Complex Method", "Empty catch clause", "Long Identifier", "Long Method", "Long Parameter List", "Long Statement",
+			"Magic Number", "Missing default"
+	);
+
 	//TODO create an integration test for checking the exporting feature
 	public static void initializeCSVDirectory(String projectName, String dirPath) {
 		File dir = new File(dirPath);
 		createDirIfNotExists(dir);
-		cleanup(dir);
+//		cleanup(dir);
 		initializeNeededFiles(dir);
 	}
 	
@@ -40,16 +45,17 @@ public class CSVUtils {
 	}
 	
 	private static void initializeNeededFiles(File dir) {
-		createCSVFile(dir.getPath() + File.separator + Constants.TYPE_METRICS_PATH_SUFFIX, Constants.TYPE_METRICS_HEADER);
-		createCSVFile(dir.getPath() + File.separator + Constants.METHOD_METRICS_PATH_SUFFIX, Constants.METHOD_METRICS_HEADER);
-		createCSVFile(dir.getPath() + File.separator + Constants.DESIGN_CODE_SMELLS_PATH_SUFFIX, Constants.DESIGN_CODE_SMELLS_HEADER);
-		createCSVFile(dir.getPath() + File.separator + Constants.IMPLEMENTATION_CODE_SMELLS_PATH_SUFFIX, Constants.IMPLEMENTATION_CODE_SMELLS_HEADER);
+		//createCSVFile(dir.getPath() + File.separator + Constants.TYPE_METRICS_PATH_SUFFIX, Constants.TYPE_METRICS_HEADER);
+//		createCSVFile(dir.getPath() + File.separator + Constants.METHOD_METRICS_PATH_SUFFIX, Constants.METHOD_METRICS_HEADER);
+//		createCSVFile(dir.getPath() + File.separator + Constants.DESIGN_CODE_SMELLS_PATH_SUFFIX, Constants.DESIGN_CODE_SMELLS_HEADER);
+		//createCSVFile(dir.getPath() + File.separator + Constants.IMPLEMENTATION_CODE_SMELLS_PATH_SUFFIX, Constants.IMPLEMENTATION_CODE_SMELLS_HEADER);
+		createCSVFile(dir.getPath() + File.separator + Constants.METRICS_PATH_SUFFIX, Constants.METRICS_HEADER);
 	}
 	
 	private static void createCSVFile(String path, String header) {
 		try {
 			File file = new File(path);
-	        file.createNewFile(); 
+	        if (file.exists()) return;
 			FileWriter fileWriter = new FileWriter(file, true);
 			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 			bufferedWriter.append(header);
@@ -82,6 +88,31 @@ public class CSVUtils {
 				String row = (obj instanceof String) ? (String) obj : obj.toString();
 				bufferedWriter.append(row);
 			}
+			bufferedWriter.close();
+		} catch(IOException e) {
+			e.printStackTrace();
+			Logger.log(e.getMessage());
+		}
+	}
+
+	public static void addTotalToCSVFile(String path, String metrics, List collection) {
+		try {
+			File file = new File(path);
+			FileWriter fileWriter = new FileWriter(file, true);
+			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+			bufferedWriter.append(metrics);
+			ArrayList<String> smells = new ArrayList<>();
+			for (Object obj : collection) {
+				String row = (obj instanceof String) ? (String) obj : obj.toString();
+				smells.add(row);
+			}
+			for (String smellTypes : types) {
+				if (smells.contains(smellTypes)) {
+					bufferedWriter.append(",1");
+				}
+				else bufferedWriter.append(",0");
+			}
+			bufferedWriter.append("\n");
 			bufferedWriter.close();
 		} catch(IOException e) {
 			e.printStackTrace();

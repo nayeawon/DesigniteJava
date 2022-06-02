@@ -31,12 +31,7 @@ public class ImplementationCodeSmell extends CodeSmell {
 	
 	@Override
 	public String toString() {
-		return getProjectName()
-				+ "," + getPackageName()
-				+ "," + typeName
-				+ "," + methodName
-				+ "," + smellName
-				+ "\n";
+		return smellName;
 	}
 	
 }

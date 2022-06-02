@@ -120,7 +120,7 @@ public class SM_Package extends SM_SourceItem {
 			TypeMetrics metrics = new TypeMetrics(type);
 			metrics.extractMetrics();
 			metricsMapping.put(type, metrics);
-			exportMetricsToCSV(metrics, type.getName());
+			type.extractCodeSmells(getMetricsAsARow(metrics));
 			updateDependencyGraph(type);
 		}
 	}
@@ -141,14 +141,11 @@ public class SM_Package extends SM_SourceItem {
 	private void exportMetricsToCSV(TypeMetrics metrics, String typeName) {
 		String path = inputArgs.getOutputFolder()
 				+ File.separator + Constants.TYPE_METRICS_PATH_SUFFIX;
-		CSVUtils.addToCSVFile(path, getMetricsAsARow(metrics, typeName));
+		CSVUtils.addToCSVFile(path, getMetricsAsARow(metrics));
 	}
 	
-	private String getMetricsAsARow(TypeMetrics metrics, String typeName) {
-		return getParentProject().getName()
-				+ "," + getName()
-				+ "," + typeName
-				+ "," + metrics.getNumOfFields()
+	private String getMetricsAsARow(TypeMetrics metrics) {
+		return metrics.getNumOfFields()
 				+ "," + metrics.getNumOfPublicFields()
 				+ "," + metrics.getNumOfMethods()
 				+ "," + metrics.getNumOfPublicMethods()
@@ -158,27 +155,26 @@ public class SM_Package extends SM_SourceItem {
 				+ "," + metrics.getInheritanceDepth()
 				+ "," + metrics.getLcom()
 				+ "," + metrics.getNumOfFanInTypes()
-				+ "," + metrics.getNumOfFanOutTypes()
-				+ "\n";
+				+ "," + metrics.getNumOfFanOutTypes();
 	}
 
 	public void extractCodeSmells() {
-		for (SM_Type type : typeList) { 
+		for (SM_Type type : typeList) {
 			DesignSmellFacade detector = new DesignSmellFacade(metricsMapping.get(type)
 					, new SourceItemInfo(getParentProject().getName()
 							, getName()
 							, type.getName())
 					);
-			type.extractCodeSmells();
-			smellMapping.put(type, detector.detectCodeSmells());
-			exportDesignSmellsToCSV(type);
+//			type.extractCodeSmells();
+//			smellMapping.put(type, detector.detectCodeSmells());
+//			exportDesignSmellsToCSV(type);
 		}
 	}
 
-	private void exportDesignSmellsToCSV(SM_Type type) {
-		CSVUtils.addAllToCSVFile(inputArgs.getOutputFolder()
-				+ File.separator + Constants.DESIGN_CODE_SMELLS_PATH_SUFFIX
-				, smellMapping.get(type));
-	}
+//	private void exportDesignSmellsToCSV(SM_Type type) {
+//		CSVUtils.addAllToCSVFile(inputArgs.getOutputFolder()
+//				+ File.separator + Constants.DESIGN_CODE_SMELLS_PATH_SUFFIX
+//				, smellMapping.get(type));
+//	}
 
 }

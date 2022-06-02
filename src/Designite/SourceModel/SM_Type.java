@@ -352,7 +352,6 @@ public class SM_Type extends SM_SourceItem implements Vertex {
 			MethodMetrics metrics = new MethodMetrics(method);
 			metrics.extractMetrics();
 			metricsMapping.put(method, metrics);
-			exportMethodMetricsToCSV(metrics, method.getName());
 		}
 	}
 	
@@ -360,24 +359,22 @@ public class SM_Type extends SM_SourceItem implements Vertex {
 		return metricsMapping.get(method);
 	}
 	
-	public void exportMethodMetricsToCSV(MethodMetrics metrics, String methodName) {
-		String path = inputArgs.getOutputFolder()
-				+ File.separator + Constants.METHOD_METRICS_PATH_SUFFIX;
-		CSVUtils.addToCSVFile(path, getMetricsAsARow(metrics, methodName));
-	}
+//	public void exportMethodMetricsToCSV(MethodMetrics metrics, String methodName) {
+//		String path = inputArgs.getOutputFolder()
+//				+ File.separator + Constants.METHOD_METRICS_PATH_SUFFIX;
+//		CSVUtils.addToCSVFile(path, getMetricsAsARow(metrics, methodName));
+//	}
 	
 	private String getMetricsAsARow(MethodMetrics metrics, String methodName) {
-		return getParentPkg().getParentProject().getName()
-				+ "," + getParentPkg().getName()
+		return getParentPkg().getParentProject().getName() +"." + getParentPkg().getName()
 				+ "," + getName()
 				+ "," + methodName
 				+ "," + metrics.getNumOfLines()
 				+ "," + metrics.getCyclomaticComplexity()
-				+ "," + metrics.getNumOfParameters()
-				+ "\n";
+				+ "," + metrics.getNumOfParameters();
 	}
 	
-	public void extractCodeSmells() {
+	public void extractCodeSmells(String metrics) {
 		for (SM_Method method : methodList) {
 			ImplementationSmellDetector detector = new ImplementationSmellDetector(metricsMapping.get(method)
 					, new SourceItemInfo(getParentPkg().getParentProject().getName()
@@ -385,15 +382,14 @@ public class SM_Type extends SM_SourceItem implements Vertex {
 							, getName()
 							, method.getName()));
 			smellMapping.put(method, detector.detectCodeSmells());
-			exportDesignSmellsToCSV(method);
-			
+			String projectInfoWithMetrics = getMetricsAsARow(metricsMapping.get(method), method.name) + "," + metrics;
+			exportDesignSmellsToCSV(projectInfoWithMetrics, method);
 		}
 	}
 	
-	private void exportDesignSmellsToCSV(SM_Method method) {
-		CSVUtils.addAllToCSVFile(inputArgs.getOutputFolder()
-				+ File.separator + Constants.IMPLEMENTATION_CODE_SMELLS_PATH_SUFFIX
-				, smellMapping.get(method));
+	private void exportDesignSmellsToCSV(String metrics, SM_Method method) {
+		CSVUtils.addTotalToCSVFile(inputArgs.getOutputFolder()
+				+ File.separator + Constants.METRICS_PATH_SUFFIX, metrics, smellMapping.get(method));
 	}
 	
 	@Override

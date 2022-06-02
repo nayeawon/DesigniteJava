@@ -13,9 +13,39 @@ public class Constants {
 	//			+ "default_csv";
 	
 	public static final String TYPE_METRICS_PATH_SUFFIX = "typeMetrics.csv";
-	public static final String METHOD_METRICS_PATH_SUFFIX = "methodMetrics.csv";
-	public static final String DESIGN_CODE_SMELLS_PATH_SUFFIX = "designCodeSmells.csv";
+	public static final String METRICS_PATH_SUFFIX = "metrics.csv";
+//	public static final String METHOD_METRICS_PATH_SUFFIX = "methodMetrics.csv";
+//	public static final String DESIGN_CODE_SMELLS_PATH_SUFFIX = "designCodeSmells.csv";
 	public static final String IMPLEMENTATION_CODE_SMELLS_PATH_SUFFIX = "implementationCodeSmells.csv";
+
+	public static final String METRICS_HEADER = "Project.Package Name"
+			+ ",Type Name"
+			+ ",Method Name"
+			+ ",MLOC"
+			+ ",CC"
+			+ ",PC"
+			+ ",NOF"
+			+ ",NOPF"
+			+ ",NOM"
+			+ ",NOPM"
+			+ ",LOC"
+			+ ",WMC"
+			+ ",NC"
+			+ ",DIT"
+			+ ",LCOM"
+			+ ",FANIN"
+			+ ",FANOUT"
+			+ ",Abstract Function Call From Constructor"
+			+ ",Complex Conditional"
+			+ ",Complex Method"
+			+ ",Empty catch clause"
+			+ ",Long Identifier"
+			+ ",Long Method"
+			+ ",Long Parameter List"
+			+ ",Long Statement"
+			+ ",Magic Number"
+			+ ",Missing default"
+			+ "\n";
 	
 	public static final String TYPE_METRICS_HEADER = "Project Name"
 			+ ",Package Name"

@@ -8,10 +8,9 @@ import Designite.utils.Constants;
 import Designite.utils.Logger;
 
 import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.LinkOption;
-import java.nio.file.Path;
+import java.nio.file.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import org.apache.commons.cli.*;
 
@@ -23,7 +22,7 @@ public class Designite {
 	public static void main(String[] args) throws IOException {
 		InputArgs argsObj = parseArguments(args);
 		SM_Project project = new SM_Project(argsObj);
-		Logger.logFile = getlogFileName(argsObj);
+		//Logger.logFile = getlogFileName(argsObj);
 		//TODO: log the version number
 		project.parse();
 		project.resolve();
@@ -72,7 +71,7 @@ public class Designite {
         	System.exit(2);
         }
         
-        	String inputFolderPath = cmd.getOptionValue("Input");
+		String inputFolderPath = cmd.getOptionValue("Input");
         String outputFolderPath = cmd.getOptionValue("Output");
         
         InputArgs inputArgs= null;
