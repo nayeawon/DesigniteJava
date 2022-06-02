@@ -83,11 +83,10 @@
 			<version>6.1.0.202203080745-r</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.eclipse.platform/org.eclipse.core.runtime -->
 		<dependency>
-			<groupId>org.eclipse.platform</groupId>
-			<artifactId>org.eclipse.core.runtime</artifactId>
-			<version>3.24.100</version>
+			<groupId>org.eclipse.birt.runtime</groupId>
+			<artifactId>org.eclipse.birt.runtime</artifactId>
+			<version>4.6.0-20160607</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.eclipse.equinox/org.eclipse.equinox.common -->
