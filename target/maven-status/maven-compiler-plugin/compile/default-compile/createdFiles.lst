@@ -47,6 +47,7 @@ Designite/smells/models/ImplementationCodeSmell.class
 Designite/SourceModel/SM_Project.class
 Designite/visitors/MethodControlFlowVisitor.class
 Designite/smells/models/DesignCodeSmell.class
+Designite/CLIUtils.class
 Designite/smells/ThresholdsDTO.class
 Designite/smells/designSmells/DesignSmellDetector.class
 Designite/SourceModel/ImportVisitor.class
