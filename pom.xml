@@ -110,7 +110,7 @@
 				<finalName>${project.artifactId}</finalName>
 					<archive>
 						<manifest>
-							<mainClass>Designite.Designite</mainClass>
+							<mainClass>Designite</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
