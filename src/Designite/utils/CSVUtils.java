@@ -9,7 +9,10 @@ import java.util.*;
 public class CSVUtils {
 	private static final List<String> types = Arrays.asList("Abstract Function Call From Constructor", "Complex Conditional",
 			"Complex Method", "Empty catch clause", "Long Identifier", "Long Method", "Long Parameter List", "Long Statement",
-			"Magic Number", "Missing default"
+			"Magic Number", "Missing default", "Deficient Encapsulation", "Unexploited Encapsulation",
+			"Broken Modularization", "Cyclic-Dependent Modularization", "Hub-like Modularization", "Insufficient Modularization",
+			"Broken Hierarchy", "Cyclic Hierarchy", "Deep Hierarchy", "Missing Hierarchy", "Multipath Hierarchy", "Rebellious Hierarchy",
+			"Wide Hierarchy"
 	);
 
 	//TODO create an integration test for checking the exporting feature
@@ -95,7 +98,7 @@ public class CSVUtils {
 		}
 	}
 
-	public static void addTotalToCSVFile(String path, String metrics, List collection) {
+	public static void addTotalToCSVFile(String path, String metrics, List collection, List designCodeSmells) {
 		try {
 			File file = new File(path);
 			FileWriter fileWriter = new FileWriter(file, true);
@@ -103,6 +106,10 @@ public class CSVUtils {
 			bufferedWriter.append(metrics);
 			ArrayList<String> smells = new ArrayList<>();
 			for (Object obj : collection) {
+				String row = (obj instanceof String) ? (String) obj : obj.toString();
+				smells.add(row);
+			}
+			for (Object obj : designCodeSmells) {
 				String row = (obj instanceof String) ? (String) obj : obj.toString();
 				smells.add(row);
 			}

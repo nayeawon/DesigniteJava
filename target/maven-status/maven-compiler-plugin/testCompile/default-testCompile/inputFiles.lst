@@ -1,19 +1,19 @@
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_ProjectTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/metrics/TypeMetricsTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_Method_CalledMethodsTests.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/smells/designSmells/HierarchySmellDetectorTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_FieldTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_ParameterTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/DesigniteTests.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/InputArgsTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/metrics/MethodMetricsTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_PackageTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/utils/models/GraphTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/smells/designSmells/EncapsulationSmellDetectorTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_MethodTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_LocalVarTests.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/smells/designSmells/AbstractionSmellDetectorTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_TypeTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/smells/designSmells/ModularizationSmellDetectorTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/smells/ThresholdsParserTest.java
-/Users/Tushar/Documents/Workspace/DesigniteJava/tests/DesigniteTests/DesigniteTests/smells/implementationSmells/ImplementationSmellDetectorTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/smells/designSmells/AbstractionSmellDetectorTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_TypeTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/smells/implementationSmells/ImplementationSmellDetectorTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/smells/designSmells/EncapsulationSmellDetectorTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_ProjectTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/metrics/MethodMetricsTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/smells/ThresholdsParserTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_MethodTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_FieldTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_ParameterTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/DesigniteTests.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_Method_CalledMethodsTests.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_LocalVarTests.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/InputArgsTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/smells/designSmells/ModularizationSmellDetectorTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/metrics/TypeMetricsTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/utils/models/GraphTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/SM_PackageTest.java
+/Users/nayeawon/HGU/22-01/AI프로젝트입문/Code/Team Project/DesigniteJava/DesigniteJava/tests/DesigniteTests/DesigniteTests/smells/designSmells/HierarchySmellDetectorTest.java

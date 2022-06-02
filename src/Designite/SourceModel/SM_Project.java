@@ -212,14 +212,14 @@ public class SM_Project extends SM_SourceItem {
 
 	@Override
 	public void parse() {
-		Logger.log("Parsing the source code ...");
+//		Logger.log("Parsing the source code ...");
 		createCompilationUnits();
 		createPackageObjects();
 		parseAllPackages();
 	}
 
 	public void resolve() {
-		Logger.log("Resolving symbols...");
+//		Logger.log("Resolving symbols...");
 		for (SM_Package pkg : packageList) {
 			pkg.resolve();
 		}
@@ -228,7 +228,7 @@ public class SM_Project extends SM_SourceItem {
 	}
 
 	public void computeMetrics() {
-		Logger.log("Extracting metrics...");
+//		Logger.log("Extracting metrics...");
 		CSVUtils.initializeCSVDirectory(name, inputArgs.getOutputFolder());
 		for (SM_Package pkg : packageList) {
 			pkg.extractTypeMetrics();
@@ -236,7 +236,7 @@ public class SM_Project extends SM_SourceItem {
 	}
 
 	public void detectCodeSmells() {
-		Logger.log("Extracting code smells...");
+//		Logger.log("Extracting code smells...");
 		for (SM_Package pkg : packageList) {
 			pkg.extractCodeSmells();
 		}

@@ -24,11 +24,7 @@ public class DesignCodeSmell extends CodeSmell {
 	
 	@Override
 	public String toString() {
-		return getProjectName()
-				+ "," + getPackageName()
-				+ "," + typeName
-				+ "," + smellName
-				+ "\n";
+		return smellName;
 	}
 
 }

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import Designite.smells.models.DesignCodeSmell;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.ImportDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
@@ -374,7 +375,7 @@ public class SM_Type extends SM_SourceItem implements Vertex {
 				+ "," + metrics.getNumOfParameters();
 	}
 	
-	public void extractCodeSmells(String metrics) {
+	public void extractCodeSmells(String metrics, List designCodeSmells) {
 		for (SM_Method method : methodList) {
 			ImplementationSmellDetector detector = new ImplementationSmellDetector(metricsMapping.get(method)
 					, new SourceItemInfo(getParentPkg().getParentProject().getName()
@@ -383,13 +384,13 @@ public class SM_Type extends SM_SourceItem implements Vertex {
 							, method.getName()));
 			smellMapping.put(method, detector.detectCodeSmells());
 			String projectInfoWithMetrics = getMetricsAsARow(metricsMapping.get(method), method.name) + "," + metrics;
-			exportDesignSmellsToCSV(projectInfoWithMetrics, method);
+			exportDesignSmellsToCSV(projectInfoWithMetrics, method, designCodeSmells);
 		}
 	}
 	
-	private void exportDesignSmellsToCSV(String metrics, SM_Method method) {
+	private void exportDesignSmellsToCSV(String metrics, SM_Method method, List designCodeSmells) {
 		CSVUtils.addTotalToCSVFile(inputArgs.getOutputFolder()
-				+ File.separator + Constants.METRICS_PATH_SUFFIX, metrics, smellMapping.get(method));
+				+ File.separator + Constants.METRICS_PATH_SUFFIX, metrics, smellMapping.get(method), designCodeSmells);
 	}
 	
 	@Override

@@ -8,9 +8,7 @@ import Designite.utils.Constants;
 import Designite.utils.Logger;
 
 import java.io.PrintWriter;
-import java.nio.file.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import org.apache.commons.cli.*;
 
@@ -27,10 +25,10 @@ public class Designite {
 		project.parse();
 		project.resolve();
 		project.computeMetrics();
-		project.detectCodeSmells();
+//		project.detectCodeSmells();
 		if (Constants.DEBUG)
 			writeDebugLog(argsObj, project);
-		Logger.log("Done.");
+//		Logger.log("Done.");
 	}
 
 	private static void writeDebugLog(InputArgs argsObj, SM_Project project) {

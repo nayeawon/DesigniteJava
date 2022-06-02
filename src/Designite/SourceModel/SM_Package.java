@@ -119,8 +119,16 @@ public class SM_Package extends SM_SourceItem {
 			type.extractMethodMetrics();
 			TypeMetrics metrics = new TypeMetrics(type);
 			metrics.extractMetrics();
+			if (metrics==null) continue;
 			metricsMapping.put(type, metrics);
-			type.extractCodeSmells(getMetricsAsARow(metrics));
+			DesignSmellFacade detector = new DesignSmellFacade(metricsMapping.get(type)
+					, new SourceItemInfo(getParentProject().getName(), getName(), type.getName())
+			);
+			if (metrics==null) {
+				System.out.println("null");
+			}
+			smellMapping.put(type, detector.detectCodeSmells());
+			type.extractCodeSmells(getMetricsAsARow(metrics), detector.detectCodeSmells());
 			updateDependencyGraph(type);
 		}
 	}
@@ -165,8 +173,8 @@ public class SM_Package extends SM_SourceItem {
 							, getName()
 							, type.getName())
 					);
-//			type.extractCodeSmells();
-//			smellMapping.put(type, detector.detectCodeSmells());
+			type.extractCodeSmells(getMetricsAsARow(metricsMapping.get(type)), detector.detectCodeSmells());
+			smellMapping.put(type, detector.detectCodeSmells());
 //			exportDesignSmellsToCSV(type);
 		}
 	}
